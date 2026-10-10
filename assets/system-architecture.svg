@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1320" height="770" viewBox="0 0 1320 770" role="img" aria-labelledby="title desc">
+<title id="title">Parking system component architecture</title>
+<desc id="desc">Separate lanes for computer vision, R6 web gate control, and asynchronous media. The vision adapter is shown separately from R6.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9 Z" fill="#64748b"/></marker></defs>
+<rect width="1320" height="770" rx="20" fill="#f5f7fb"/>
+<g font-family="Arial, Apple SD Gothic Neo, sans-serif"><text x="44" y="54" font-size="28" font-weight="700" fill="#0f172a">스마트 주차 시스템 · 역할과 코드 경계</text><text x="44" y="87" font-size="16" fill="#475569">기존 구현의 구성요소 설명 · 공개 코드는 R6 C++ 판단 코어 · 현재 배포 토폴로지 검증 자료가 아닙니다</text>
+<text x="44" y="135" font-size="19" fill="#334155" font-weight="700">01  영상 분석 · 기존 파이프라인</text>
+<text x="44" y="325" font-size="19" fill="#334155" font-weight="700">02  웹 제어 · R6</text>
+<text x="44" y="530" font-size="19" fill="#334155" font-weight="700">03  운영 이력 · 미디어</text>
+<rect x="44" y="158" width="220" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="62" y="192" font-size="18" fill="#0f172a" font-weight="700">카메라</text>
+<text x="62" y="220" font-size="14" fill="#475569" font-weight="400">프레임 / 진입 구간 ROI</text>
+<rect x="309" y="158" width="272" height="94" rx="12" fill="#e8f3f6" stroke="#78b6c2"/>
+<text x="327" y="192" font-size="18" fill="#0f172a" font-weight="700">Pi · 검출 / OCR</text>
+<text x="327" y="220" font-size="14" fill="#475569" font-weight="400">검출 → crop → 문자 인식</text>
+<rect x="628" y="158" width="270" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="646" y="192" font-size="18" fill="#0f172a" font-weight="700">로컬 허용 판단</text>
+<text x="646" y="220" font-size="14" fill="#475569" font-weight="400">후보 / 형식 / 허용 목록 확인</text>
+<rect x="945" y="158" width="328" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="963" y="192" font-size="18" fill="#0f172a" font-weight="700">기존 guarded 제어 어댑터</text>
+<text x="963" y="220" font-size="14" fill="#475569" font-weight="400">R6 API 통합 여부는 별도 확인 필요</text>
+<path d="M264,205 L301,205" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="300,200 309,205 300,210" fill="#64748b"/>
+<path d="M581,205 L620,205" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="619,200 628,205 619,210" fill="#64748b"/>
+<path d="M898,205 L937,205" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="936,200 945,205 936,210" fill="#64748b"/>
+<text x="44" y="287" font-size="14" fill="#64748b" font-weight="400">영상처리 소스의 별도 경로를 R6 Gate Agent에 직접 연결된 것으로 표시하지 않았습니다.</text>
+<rect x="44" y="350" width="174" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="62" y="384" font-size="18" fill="#0f172a" font-weight="700">운영자 웹</text>
+<text x="62" y="412" font-size="14" fill="#475569" font-weight="400">요청 / 상태 표시</text>
+<rect x="258" y="350" width="224" height="94" rx="12" fill="#e8f3f6" stroke="#78b6c2"/>
+<text x="276" y="384" font-size="18" fill="#0f172a" font-weight="700">Coordinator</text>
+<text x="276" y="412" font-size="14" fill="#475569" font-weight="400">웹 요청 조정</text>
+<rect x="532" y="350" width="228" height="94" rx="12" fill="#e8f3f6" stroke="#78b6c2"/>
+<text x="550" y="384" font-size="18" fill="#0f172a" font-weight="700">Pi · Gate Agent</text>
+<text x="550" y="412" font-size="14" fill="#475569" font-weight="400">최종 명령 판단</text>
+<rect x="800" y="350" width="194" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="818" y="384" font-size="18" fill="#0f172a" font-weight="700">A6 브리지</text>
+<text x="818" y="412" font-size="14" fill="#475569" font-weight="400">MQTT ↔ RS232</text>
+<rect x="1035" y="350" width="238" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="1053" y="384" font-size="18" fill="#0f172a" font-weight="700">기존 제어기</text>
+<text x="1053" y="412" font-size="14" fill="#475569" font-weight="400">모터 / 자동 닫힘</text>
+<path d="M218,396 L250,396" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="249,391 258,396 249,401" fill="#64748b"/>
+<path d="M482,396 L524,396" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="523,391 532,396 523,401" fill="#64748b"/>
+<text x="487.0" y="384" font-size="13" fill="#475569" font-weight="400">MQTT</text>
+<path d="M760,396 L792,396" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="791,391 800,396 791,401" fill="#64748b"/>
+<path d="M994,396 L1027,396" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="1026,391 1035,396 1026,401" fill="#64748b"/>
+<text x="994.5" y="384" font-size="13" fill="#475569" font-weight="400">RS232</text>
+<text x="258" y="479" font-size="15" fill="#475569" font-weight="400">전송 ACK와 물리 상태 ACTION / OK를 구분 · 상태 이벤트는 Pi → 서버 → 웹으로 전달</text>
+<rect x="44" y="555" width="314" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="62" y="589" font-size="18" fill="#0f172a" font-weight="700">상태 이벤트 / CCTV</text>
+<text x="62" y="617" font-size="14" fill="#475569" font-weight="400">비동기 기록 경로</text>
+<rect x="411" y="555" width="396" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="429" y="589" font-size="18" fill="#0f172a" font-weight="700">서버 · 이력 / 이벤트 영상</text>
+<text x="429" y="617" font-size="14" fill="#475569" font-weight="400">개폐 기록 · 썸네일 / clip 처리</text>
+<rect x="860" y="555" width="413" height="94" rx="12" fill="#ffffff" stroke="#cbd5e1"/>
+<text x="878" y="589" font-size="18" fill="#0f172a" font-weight="700">운영 화면</text>
+<text x="878" y="617" font-size="14" fill="#475569" font-weight="400">현장 밖에서 영상과 이력 확인</text>
+<path d="M358,602 L403,602" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="402,597 411,602 402,607" fill="#64748b"/>
+<path d="M807,602 L852,602" stroke="#64748b" stroke-width="2" fill="none"/><polygon points="851,597 860,602 851,607" fill="#64748b"/>
+<text x="44" y="704" font-size="16" fill="#334155" font-weight="400">공개 snapshot: R6 제어 코어의 C++ 코드 + 기존 로컬 테스트 · 네트워크 / 장치 실행부 제외</text>
+<text x="44" y="735" font-size="14" fill="#64748b" font-weight="400">개발 기간 2026.05~2026.08  |  공개 정리 2026-10-10  |  야간 인식 한계는 별도 문서에 명시</text>
+</g></svg>

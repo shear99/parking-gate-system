@@ -1,0 +1,51 @@
+{
+  "snapshot_date": "2026-10-10",
+  "scope": "Gate Control R6 decision cores; no network or hardware runtime",
+  "source_policy": "Existing local implementation. Public identifiers renamed; algorithms retained.",
+  "files": [
+    {
+      "file": "protocol/include/portfolio/gate/protocol.hpp",
+      "sha256": "340dee23fc26206a207b5503af173e32ba8a2770f1839e6cbc84c13d3e14fc2c"
+    },
+    {
+      "file": "protocol/src/protocol.cpp",
+      "sha256": "a067c6b5f100d5ef1a05f2e9ea9dfb7beb65b1f04debcb28b663bc7d93e6b2de"
+    },
+    {
+      "file": "edge-agent/include/portfolio/gate/a6_codec.hpp",
+      "sha256": "9d8e4c840ff4edf23a799f8b4d128840288a87af28614f2a8358abfe22358f78"
+    },
+    {
+      "file": "edge-agent/src/a6_codec.cpp",
+      "sha256": "16217319e46690c482da6fe14bc1232d9827dca1a224a68cc81eca2da01259fd"
+    },
+    {
+      "file": "edge-agent/include/portfolio/gate/agent_core.hpp",
+      "sha256": "c16c6d4103e9f97360f5162d3a494e9922120699c5413c8da34251ce1078222c"
+    },
+    {
+      "file": "edge-agent/src/agent_core.cpp",
+      "sha256": "f2e8ad87eb0ff9c9fb877ad131cb3214fdfc4be8983c3e38b5caa0c5a651b3f5"
+    },
+    {
+      "file": "coordinator/include/portfolio/gate/coordinator_core.hpp",
+      "sha256": "f9aa563c1e4a9d2c06da692efdca4f1c344cdb4c9ac984e07e07c78ecb3dea35"
+    },
+    {
+      "file": "coordinator/src/coordinator_core.cpp",
+      "sha256": "74bc9d608ede892cbd45e1ce4a91123c4e201b5f564da5d3f52602166a4922c9"
+    },
+    {
+      "file": "tests/agent_core_test.cpp",
+      "sha256": "be54645013dfb9b704e6723e5537393450c61d5265c60a736c9c06a9eea42c7d"
+    },
+    {
+      "file": "tests/coordinator_core_test.cpp",
+      "sha256": "b32df419192ab05d0e1d5fa2e1b60d57f95d9079d1a16a532055f4a14b829bae"
+    },
+    {
+      "file": "tests/concurrency_test.cpp",
+      "sha256": "034ba0c0cfe6b35fb2496b3e0d091b17d540b37811caf442816e4f7d7bfcd5ec"
+    }
+  ]
+}
